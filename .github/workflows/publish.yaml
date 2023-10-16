@@ -21,5 +21,7 @@ jobs:
             exit 1
           fi
         working-directory: ./packages/hooks
+      - run: npm install
+        working-directory: ./packages/hooks
       - run: npm publish --access public
         working-directory: ./packages/hooks
