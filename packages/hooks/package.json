@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "provides Observability as React Hooks in React.",
   "main": "dist/index.js",
+  "private": false,
   "keywords": [
     "open-telemetry",
     "opentelmetry",
