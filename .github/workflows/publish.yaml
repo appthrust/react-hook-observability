@@ -23,6 +23,8 @@ jobs:
         working-directory: ./packages/hooks
       - run: npm install
         working-directory: ./packages/hooks
+      - run: npm build
+        working-directory: ./packages/hooks
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
