@@ -23,7 +23,7 @@ jobs:
         working-directory: ./packages/hooks
       - run: npm install
         working-directory: ./packages/hooks
-      - run: npm build
+      - run: npm run build
         working-directory: ./packages/hooks
       - run: npm publish --access public
         env:
