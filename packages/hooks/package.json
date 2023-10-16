@@ -22,7 +22,8 @@
   "homepage": "https://github.com/appthrust/react/react-hook-observability",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "publish:patch": "./scripts/publish-patch.sh"
   },
   "files": [],
   "dependencies": {},
