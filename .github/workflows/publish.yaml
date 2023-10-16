@@ -1,0 +1,28 @@
+name: Publish Package to npmjs
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          registry-url: "https://registry.npmjs.org"
+      - name: Check version consistency
+        run: |
+          PKG_VERSION=$(npm -p -c 'require("./package.json").version')
+          RELEASE_VERSION=${{ github.event.release.tag_name }}
+          if [ "v$PKG_VERSION" != "$RELEASE_VERSION" ]; then
+            echo "Error: Package version ($PKG_VERSION) does not match release version ($RELEASE_VERSION)"
+            exit 1
+          fi
+        working-directory: ./packages/hooks
+      - run: npm ci
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        working-directory: ./packages/hooks
