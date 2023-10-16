@@ -27,6 +27,8 @@ jobs:
       - run: pnpm install
       - run: pnpm run build
         working-directory: ./packages/hooks
+      - run: ls ./dist
+        working-directory: ./packages/hooks
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
