@@ -1,5 +1,5 @@
 {
-  "name": "@react-hook-observability/browser",
+  "name": "@react-hook-observability/hooks",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
@@ -20,7 +20,8 @@
   "repository": "https://github.com/appthrust/react-hook-observability.git",
   "homepage": "https://github.com/appthrust/react/react-hook-observability",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "tsc -w"
   },
   "files": [],
   "dependencies": {},

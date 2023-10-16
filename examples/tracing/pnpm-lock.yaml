@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@react-hook-observability/browser':
-        specifier: ../../packages/browser
-        version: link:../../packages/browser
+      '@react-hook-observability/hooks':
+        specifier: ../../packages/hooks
+        version: link:../../packages/hooks
       '@types/node':
         specifier: 20.8.5
         version: 20.8.5
