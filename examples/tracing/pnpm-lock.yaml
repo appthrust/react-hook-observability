@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@react-hook-observability/hooks':
-        specifier: ~0.1.14
-        version: 0.1.14
+        specifier: ~0.1.20
+        version: 0.1.20
       '@types/node':
         specifier: 20.8.5
         version: 20.8.5
@@ -266,8 +266,8 @@ packages:
       fastq: 1.15.0
     dev: false
 
-  /@react-hook-observability/hooks@0.1.14:
-    resolution: {integrity: sha512-JkFlARPep2nYkPA0Y7tx5VKRTkKqbZECnO5Qpj8h72QMQ6J7sc/dp1Nxn03fNBaWfoHUuOSkI9HTUGq19B1jXA==}
+  /@react-hook-observability/hooks@0.1.20:
+    resolution: {integrity: sha512-WFOlOsVmwFqtpNsJlcCPz0sOvSQlR33r9e+nhms7U/mimxYZowtaezYroyz4/oquGzHNRQ+B5VU21hYHMABv5Q==}
     engines: {node: '>=18.0.0'}
     dev: false
 
