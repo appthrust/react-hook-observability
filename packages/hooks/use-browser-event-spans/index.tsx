@@ -20,7 +20,7 @@ const useBrowserEventSpans = ({
   eventKinds = [],
   tracerName = "browser-event-tracer",
 }: useBrowserEventSpansOptions) => {
-  const watchRef = useRef<HTMLHtmlElement>(null);
+  const watchRef = useRef<HTMLElement>(null);
   const [spans, setSpans] = useState<ReadableSpan[]>([]);
 
   useEffect(() => {
@@ -70,10 +70,7 @@ const useBrowserEventSpans = ({
     };
   }, [batchConfig, eventKinds, tracerName]);
 
-  const resetSpans = () => {
-    setSpans([]);
-  };
-  return { watchRef, spans, resetSpans };
+  return { watchRef, spans, setSpans };
 };
 
 function getXpath(element: HTMLElement): string {

@@ -1,6 +1,6 @@
 "use client";
 
-import useBrowserEventSpans from "@react-hook-observability/hooks/dist/use-browser-event-spans";
+import { useBrowserEventSpans } from "@react-hook-observability/hooks";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { useClientConsoleExporter } from "@react-hook-observability/hooks";

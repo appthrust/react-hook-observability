@@ -4,14 +4,14 @@ import { ExportResult } from "@opentelemetry/core";
 import { ReadableSpan, SpanExporter } from "@opentelemetry/sdk-trace-web";
 import { Dispatch, SetStateAction } from "react";
 
+interface SetSpansExporterConfig {
+  setSpans: Dispatch<SetStateAction<ReadableSpan[]>>;
+}
+
 export default class SetSpansExporter implements SpanExporter {
   _is_shutdown: boolean = false;
   _setSpans: Dispatch<SetStateAction<ReadableSpan[]>>;
-  constructor({
-    setSpans,
-  }: {
-    setSpans: Dispatch<SetStateAction<ReadableSpan[]>>;
-  }) {
+  constructor({ setSpans }: SetSpansExporterConfig) {
     this._setSpans = setSpans;
   }
 
@@ -23,7 +23,7 @@ export default class SetSpansExporter implements SpanExporter {
       console.log("already shutdown");
       return;
     }
-    this._setSpans(spans);
+    this._setSpans((current) => [...current, ...spans]);
     resultCallback({ code: 0 });
   }
   shutdown(): Promise<void> {
