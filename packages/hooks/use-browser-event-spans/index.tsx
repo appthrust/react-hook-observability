@@ -70,10 +70,7 @@ const useBrowserEventSpans = ({
     };
   }, [batchConfig, eventKinds, tracerName]);
 
-  const resetSpans = () => {
-    setSpans([]);
-  };
-  return { watchRef, spans, resetSpans };
+  return { watchRef, spans, setSpans };
 };
 
 function getXpath(element: HTMLElement): string {
