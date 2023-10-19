@@ -52,7 +52,7 @@ export default function RootLayout() {
   });
 
   return (
-    <html lang="en">
+    <html lang="en" ref={watchRef}>
       <body className={inter.className}>
         <main
           className={`

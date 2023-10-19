@@ -20,7 +20,7 @@ const useBrowserEventSpans = ({
   eventKinds = [],
   tracerName = "browser-event-tracer",
 }: useBrowserEventSpansOptions) => {
-  const watchRef = useRef<HTMLElement>(null);
+  const watchRef = useRef<HTMLHtmlElement>(null);
   const [spans, setSpans] = useState<ReadableSpan[]>([]);
 
   useEffect(() => {
