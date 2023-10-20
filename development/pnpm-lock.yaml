@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@react-hook-observability/hooks':
-        specifier: file:../packages/hooks
-        version: file:../packages/hooks
       autoprefixer:
         specifier: 10.4.16
         version: 10.4.16(postcss@8.4.31)
@@ -55,9 +52,7 @@ importers:
         specifier: ^1.10.15
         version: 1.10.15
 
-  nextjs-full: {}
-
-  nextjs-watch-html: {}
+  packages/nextjs-watch-html: {}
 
 packages:
 
@@ -2690,10 +2685,4 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-    dev: false
-
-  file:../packages/hooks:
-    resolution: {directory: ../packages/hooks, type: directory}
-    name: '@react-hook-observability/hooks'
-    engines: {node: '>=18.0.0'}
     dev: false
