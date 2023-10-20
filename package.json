@@ -7,8 +7,7 @@
     "url": "git+https://github.com/appthrust/react-hook-observability.git"
   },
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev"
+    "build": "turbo build"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.62",
