@@ -1,0 +1,14 @@
+trigger_mode(TRIGGER_MODE_AUTO)
+
+load('ext://namespace', 'namespace_create')
+namespace_create('tempo')
+namespace_create('prometheus')
+namespace_create('grafana')
+
+load('ext://helm_remote', 'helm_remote')
+helm_remote('tempo', repo_url="https://grafana.github.io/helm-charts", release_name="tempo", namespace="tempo", version="1.6.3", values=["./values/tempo.yaml"])
+helm_remote('prometheus', repo_url="https://prometheus-community.github.io/helm-charts", release_name="prometheus", namespace="prometheus", version="25.4.0", values=["./values/prometheus.yaml"])
+helm_remote('grafana', repo_url="https://grafana.github.io/helm-charts", release_name="grafana", namespace="grafana", version="7.0.1", values=["./values/grafana.yaml"])
+
+k8s_resource("tempo", port_forwards=["4318:4318"])
+k8s_resource("grafana", port_forwards=["3000:3000"])

@@ -1,0 +1,13 @@
+---
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: react-hook-observability
+servers: 1
+agents: 0
+image: docker.io/rancher/k3s:v1.27.4-k3s1
+registries:
+  create:
+    name: react-hook-observability
+    host: "127.0.0.1"
+    hostPort: "random"

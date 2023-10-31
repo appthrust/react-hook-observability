@@ -1,0 +1,7 @@
+server:
+  extraFlags:
+    - "enable-feature=exemplar-storage"
+    - "enable-feature=otlp-write-receiver"
+    - "enable-feature=remote-write-receiver"
+prometheus-node-exporter:
+  enabled: false

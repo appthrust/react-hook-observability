@@ -1,0 +1,14 @@
+[no-exit-message]
+[private]
+@default:
+  if [ -z "sk" ]; then \
+    just -l && exit 0; \
+  else \
+    recipe=$(just -l --list-heading '' --list-prefix '' | sk | awk '{print $1}'); \
+    if [ -n "$recipe" ]; then \
+      just "$recipe"; \
+    else \
+      echo "No recipe selected"; \
+    fi \
+  fi
+

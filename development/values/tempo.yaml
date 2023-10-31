@@ -1,0 +1,4 @@
+tempo:
+  metricsGenerator:
+    enabled: true
+    remoteWriteUrl: "http://prometheus-server.prometheus.svc.cluster.local/api/v1/write"

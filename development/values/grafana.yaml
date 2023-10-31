@@ -1,0 +1,39 @@
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: prometheus
+      type: prometheus
+      access: proxy
+      uid: prometheus
+      orgId: 1
+      url: http://prometheus-server.prometheus.svc.cluster.local
+      basicAuth: false
+      isDefault: false
+      version: 1
+      editable: false
+    - name: 'tempo'
+      type: tempo
+      access: proxy
+      orgId: 1
+      url: http://tempo.tempo.svc.cluster.local:3100
+      basicAuth: false
+      isDefault: true
+      version: 1
+      editable: false
+      uid: tempo-query
+      jsonData:
+        serviceMap:
+          datasourceUid: 'prometheus'
+        nodeGraph:
+          enabled: true
+        search:
+          hide: false
+        traceQuery:
+          timeShiftEnabled: true
+          spanStartTimeShift: '1h'
+          spanEndTimeShift: '-1h'
+        spanBar:
+          type: 'Tag'
+          tag: 'http.path'
+adminPassword: admin
