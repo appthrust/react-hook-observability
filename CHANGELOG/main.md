@@ -3,6 +3,7 @@
 # Development
 
 - add development projects
+- add k3d environment
 
 # Fixes
 
