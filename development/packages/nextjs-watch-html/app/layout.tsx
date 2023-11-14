@@ -1,6 +1,7 @@
 "use client";
 
 import { useBrowserEventSpans } from "#hooks";
+import { otlpServerAction, useServerActionExporter } from "#nextHooks";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
@@ -41,14 +42,42 @@ export default function RootLayout() {
     return () => {};
   }, [spans]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // 4. clear spans
+  useServerActionExporter({
+    spans,
+    serverAction: otlpServerAction,
+    convertToStringifySpan: (span) => {
+      return {
+        name: span.name,
+        kind: span.kind,
+        parentSpanId: span.parentSpanId,
+        startTime: span.startTime,
+        endTime: span.endTime,
+        status: span.status,
+        attributes: span.attributes,
+        links: span.links,
+        events: span.events,
+        duration: span.duration,
+        ended: span.ended,
+        instrumentationLibrary: span.instrumentationLibrary,
+        droppedAttributesCount: span.droppedAttributesCount,
+        droppedEventsCount: span.droppedEventsCount,
+        droppedLinksCount: span.droppedLinksCount,
+        spanContext: span.spanContext(),
+      };
+    },
+    postServerAction: ({ data, serverError, validationError }) => {
+      if (serverError) {
+        console.log(serverError);
+        return;
+      }
+      if (validationError) {
+        console.log(validationError);
+        return;
+      }
+      console.log(data);
       setSpans([]);
-    }, 1000);
-    return () => {
-      clearInterval(interval);
-    };
+    },
+    intervalDuration: 1000,
   });
 
   return (
