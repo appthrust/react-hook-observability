@@ -1,5 +1,3 @@
-"use client";
-
 import { ExportResult } from "@opentelemetry/core";
 import { ReadableSpan, SpanExporter } from "@opentelemetry/sdk-trace-web";
 import { Dispatch, SetStateAction } from "react";

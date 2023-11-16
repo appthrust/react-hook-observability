@@ -1,9 +1,7 @@
-"use client";
-
 import { ReadableSpan } from "@opentelemetry/sdk-trace-web";
 import { useEffect } from "react";
 
-interface useServerActionsExporterOptions<BS, SAR> {
+interface useServerActionsExportOptions<BS, SAR> {
   spans: ReadableSpan[];
   convertToStringifySpan: (span: ReadableSpan) => BS;
   serverAction: (spans: BS[]) => Promise<SAR>;
@@ -11,13 +9,13 @@ interface useServerActionsExporterOptions<BS, SAR> {
   intervalDuration?: number;
 }
 
-export function useServerActionExporter<BS, SAR>({
+export default function useServerActionExport<BS, SAR>({
   spans,
   convertToStringifySpan,
   serverAction,
   postServerAction,
   intervalDuration = 1000,
-}: useServerActionsExporterOptions<BS, SAR>) {
+}: useServerActionsExportOptions<BS, SAR>) {
   useEffect(() => {
     const interval = setInterval(() => {
       if (spans.length === 0) {

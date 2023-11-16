@@ -71,3 +71,7 @@ export default function RootLayout({
   );
 }
 ```
+
+## Contributing
+
+see [CONTRIBUTING.md](./CONTRIBUTING.md)

@@ -1,12 +1,17 @@
 "use client";
 
 import { useBrowserEventSpans } from "#hooks";
-import { otlpServerAction, useServerActionExporter } from "#nextHooks";
+import { exportOtlpReceiver } from "#nextServerActions";
+import { useServerActionExporter } from "#nextHooks";
+import { ReadableSpan } from "@opentelemetry/sdk-trace-web";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
+import { TraceState } from "@opentelemetry/core";
 
 const inter = Inter({ subsets: ["latin"] });
+
+interface TekitoSpan {}
 
 export default function RootLayout() {
   // 1. get browser event spans
@@ -42,44 +47,28 @@ export default function RootLayout() {
     return () => {};
   }, [spans]);
 
-  useServerActionExporter({
+  useServerActionExport({
     spans,
-    serverAction: otlpServerAction,
-    convertToStringifySpan: (span) => {
-      return {
-        name: span.name,
-        kind: span.kind,
-        parentSpanId: span.parentSpanId,
-        startTime: span.startTime,
-        endTime: span.endTime,
-        status: span.status,
-        attributes: span.attributes,
-        links: span.links,
-        events: span.events,
-        duration: span.duration,
-        ended: span.ended,
-        instrumentationLibrary: span.instrumentationLibrary,
-        droppedAttributesCount: span.droppedAttributesCount,
-        droppedEventsCount: span.droppedEventsCount,
-        droppedLinksCount: span.droppedLinksCount,
-        spanContext: span.spanContext(),
-      };
-    },
+    convertToStringifySpan: convertToBrowserSpan,
+    serverAction: exportOtlp,
     postServerAction: ({ data, serverError, validationError }) => {
       if (serverError) {
+        console.log("server error");
         console.log(serverError);
         return;
       }
       if (validationError) {
+        console.log("validation error");
         console.log(validationError);
         return;
       }
+      console.log("data");
       console.log(data);
+      setSpans([]);
       setSpans([]);
     },
     intervalDuration: 1000,
   });
-
   return (
     <html lang="en" ref={watchRef}>
       <body className={inter.className}>

@@ -29,6 +29,9 @@ importers:
       next-safe-action:
         specifier: ^5.0.3
         version: 5.0.3(next@14.0.2)(react@18.2.0)(zod@3.22.4)
+      server-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       zod:
         specifier: ^3.22.4
         version: 3.22.4
@@ -69,7 +72,13 @@ importers:
 
   packages/hooks: {}
 
-  packages/nextjs: {}
+  packages/nextjs-hooks:
+    dependencies:
+      '@react-hook-observability/nextjs-server-actions':
+        specifier: file://../nextjs-server-actions
+        version: file:packages/nextjs-server-actions
+
+  packages/nextjs-server-actions: {}
 
 packages:
 
@@ -1533,6 +1542,10 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
+  /server-only@0.0.1:
+    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
+    dev: false
+
   /shebang-command@1.2.0:
     resolution: {integrity: sha512-EV3L1+UQWGor21OmnvojK36mhg+TyIKDh3iFBKBohr5xeXIhNBcx8oWdgkTEEQ+BEFFYdLRuqMfd5L84N1V5Vg==}
     engines: {node: '>=0.10.0'}
@@ -1875,4 +1888,10 @@ packages:
 
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+    dev: false
+
+  file:packages/nextjs-server-actions:
+    resolution: {directory: packages/nextjs-server-actions, type: directory}
+    name: '@react-hook-observability/nextjs-server-actions'
+    engines: {node: '>=18.0.0'}
     dev: false

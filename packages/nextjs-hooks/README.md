@@ -4,7 +4,7 @@
 
 ## About
 
-**react-hook-observability** is a library that provides Observability as React Hooks in React.
+**@react-hook-observability/nextjs-hooks** is a library that provides Observability as React Hooks in React and this is specific to Next.js.
 
 ## Getting Started
 

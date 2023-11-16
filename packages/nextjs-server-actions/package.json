@@ -1,5 +1,5 @@
 {
-  "name": "@react-hook-observability/nextjs",
+  "name": "@react-hook-observability/nextjs-server-actions",
   "version": "0.1.1",
   "description": "provides Observability as React Hooks in React.",
   "main": "dist/index.js",

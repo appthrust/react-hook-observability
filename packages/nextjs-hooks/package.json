@@ -1,0 +1,41 @@
+{
+  "name": "@react-hook-observability/nextjs-hooks",
+  "version": "0.1.1",
+  "description": "provides Observability as React Hooks in React.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "private": false,
+  "keywords": [
+    "open-telemetry",
+    "opentelmetry",
+    "observability",
+    "react hook"
+  ],
+  "sideEffects": false,
+  "authors": {
+    "name": "megumish",
+    "email": "keishi.kawada@craftsman-software.com"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": "https://github.com/appthrust/react-hook-observability.git",
+  "homepage": "https://github.com/appthrust/react/react-hook-observability",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "publish:patch": "./scripts/publish-patch.sh"
+  },
+  "dependencies": {
+    "@react-hook-observability/nextjs-server-actions": "file://../nextjs-server-actions"
+  },
+  "peerDependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}

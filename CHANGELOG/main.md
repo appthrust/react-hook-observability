@@ -1,5 +1,9 @@
 # Changelog
 
+# Features
+
+- Added a new hooks for Next.js.
+
 # Development
 
 - add development projects
