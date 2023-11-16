@@ -17,7 +17,7 @@ jobs:
           TAG_NAME=${{ github.event.release.tag_name }}
           PKG_NAME=${TAG_NAME%-*}
           RELEASE_VERSION=${TAG_NAME##*-}
-          PKG_VERSION=$(npm version --json | jq -r '.["@react-hook-observability/$PKG_NAME"]')
+          PKG_VERSION=$(npm version --json | jq -r '.[\"@react-hook-observability/${PKG_NAME}\"]')
           if [ "v$PKG_VERSION" != "$RELEASE_VERSION" ]; then
             echo "Error: Package version ($PKG_VERSION) does not match release version ($RELEASE_VERSION)"
             exit 1
