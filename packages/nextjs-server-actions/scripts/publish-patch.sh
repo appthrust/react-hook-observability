@@ -5,6 +5,6 @@ set -e
 export version=$(npm version patch)
 git add .
 git commit
-git tag $version
+git tag nextjs-server-actions-$version
 git push --tag
-gh release create $version
+gh release create nextjs-server-actions-$version
