@@ -1,5 +1,11 @@
+<p>
+    <h1 align="center">@react-hook-observability/nextjs-hooks</h1>
+</p>
+
 <p align="center">
-    <h1 align="center">react-hook-observability</h1>
+  <a aria-label="NPM version" href="https://www.npmjs.com/package/@react-hook-observability/nextjs-hooks">
+    <img alt="" src="https://img.shields.io/npm/v/@react-hook-observability/nextjs-hooks.svg?style=for-the-badge&labelColor=000000">
+  </a>
 </p>
 
 ## About
