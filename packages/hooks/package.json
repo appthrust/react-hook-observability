@@ -1,6 +1,6 @@
 {
   "name": "@react-hook-observability/hooks",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "description": "provides Observability as React Hooks in React.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
