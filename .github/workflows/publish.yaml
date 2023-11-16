@@ -18,10 +18,6 @@ jobs:
           PKG_NAME=${TAG_NAME%-*}
           RELEASE_VERSION=${TAG_NAME##*-}
           RELEASE_NAME=@react-hook-observability/${PKG_NAME}
-          # debug
-          echo ${RELEASE_NAME}
-          npm version --json | jq -r --arg RN "${RELEASE_NAME}" '.[$RN]'
-          # end debug
           PKG_VERSION=$(npm version --json | jq -r --arg RN ${RELEASE_NAME} '.[$RN]')
           if [ "v$PKG_VERSION" != "$RELEASE_VERSION" ]; then
             echo "Error: Package version ($PKG_VERSION) does not match release version ($RELEASE_VERSION)"
