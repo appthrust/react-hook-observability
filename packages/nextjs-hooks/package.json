@@ -1,6 +1,6 @@
 {
   "name": "@react-hook-observability/nextjs-hooks",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "provides Observability as React Hooks in React.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
