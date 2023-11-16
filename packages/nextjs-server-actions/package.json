@@ -26,7 +26,7 @@
     "type": "git",
     "url": "git+https://github.com/appthrust/react-hook-observability.git"
   },
-  "homepage": "https://github.com/appthrust/react/react-hook-observability",
+  "homepage": "https://github.com/appthrust/react-hook-observability",
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w",

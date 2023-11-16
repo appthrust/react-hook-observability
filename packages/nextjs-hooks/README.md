@@ -13,24 +13,24 @@ Install the library.
 ### npm
 
 ```bash
-npm install @react-hook-observability/hooks
+npm install @react-hook-observability/nextjs-hooks
 ```
 
 ### yarn
 
 ```bash
-yarn add @react-hook-observability/hooks
+yarn add @react-hook-observability/nextjs-hooks
 ```
 
 ### pnpm
 
 ```bash
-pnpm add @react-hook-observability/hooks
+pnpm add @react-hook-observability/nextjs-hooks
 ```
 
 ### bun
 
 ```bash
-bun add @react-hook-observability/hooks
+bun add @react-hook-observability/nextjs-hooks
 ```
 
